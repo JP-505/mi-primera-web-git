@@ -13,3 +13,4 @@ document.getElementById("boton").addEventListener("click", function() {
     cambiarMensaje();
     cambiarBoton();
 });
+// Se agrega es codigo pendiente para revision
