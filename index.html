@@ -1,22 +1,103 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primera web con Git</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AulaConecta</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main class="contenedor">
-        <section class="tarjeta"> 
-            <p class="etiqueta">Ficha 3538620</p>
-            <h1>Mi primera web versionada</h1>
-            <p id="mensaje">Cada mejora quedará registrada en GitHub.</p>
-            <button id="boton">Probar JavaScript</button>
-        </section>
-    </main>
-    <script src="script.js"></script>
+
+  <header class="navbar">
+    <div class="logo-container">
+      <svg class="icon-logo" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3L1 9l11 6l9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+      <h1>AulaConecta</h1>
+    </div>
+    <div class="user-status">
+      <span class="badge offline-badge" id="netStatus"> En línea (HU-07)</span>
+      <span class="user-name">Aprendiz SENA</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="banner-announcement">
+       <strong>Comunicado Institucional:</strong> Mantenimiento de plataforma programado para este sábado.
+    </section>
+
+    <section class="card progress-section">
+      <h2>Mi Avance Académico</h2>
+      <p>Ficha: <strong>2672390 - ADSO</strong> (HU-18)</p>
+      
+      <div class="progress-container">
+        <span>Competencias Completadas (HU-06): <strong>75%</strong></span>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 75%;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="filter-section">
+      <label for="subjectFilter"><strong>Filtrar por Asignatura (HU-09):</strong></label>
+      <select id="subjectFilter" onchange="filterTasks()">
+        <option value="all">Todas las Asignaturas</option>
+        <option value="programacion">Programación Web</option>
+        <option value="bases-datos">Bases de Datos</option>
+        <option value="ingles">Inglés Técnico</option>
+      </select>
+    </section>
+
+    <section class="grid-layout">
+
+      <article class="card task-card" data-subject="programacion">
+        <div class="card-header">
+          <span class="tag">Programación Web</span>
+          <span class="date"> Límite: 15 Ago (HU-01)</span>
+        </div>
+        <h3>Taller 1: Maquetación HTML5 y CSS3</h3>
+        <p>Aplica los conocimientos de flexbox y grid para crear una interfaz accesible.</p>
+        
+        <div class="feedback-box">
+           <strong>Retroalimentación del Instructor:</strong> "Buen avance, recuerda revisar la semántica de las etiquetas."
+        </div>
+
+        <button class="btn-secondary" onclick="downloadGuide('Guia_HTML5.pdf')"> Descargar Guía (Offline) (HU-11)</button>
+
+        <form class="upload-form" onsubmit="handleUpload(event)">
+          <label><strong>Subir Evidencia desde Móvil (HU-02):</strong></label>
+          <input type="file" accept="image/*,video/*,.pdf" required>
+          
+          <div class="compress-option">
+            <input type="checkbox" id="compress1">
+            <label for="compress1"> Comprimir archivo para ahorrar datos (HU-08)</label>
+          </div>
+
+          <button type="submit" class="btn-primary">Enviar Evidencia</button>
+        </form>
+        <p class="status-msg" id="msg-1"></p>
+      </article>
+
+      <article class="card">
+        <h3>Próximos Recordatorios (HU-03)</h3>
+        <ul class="reminder-list">
+          <li> <strong>Inglés Técnico:</strong> Entregar Audio - 18 de Agosto</li>
+          <li> <strong>Bases de Datos:</strong> Modelo ER - 22 de Agosto</li>
+        </ul>
+      </article>
+
+    </section>
+
+    <section class="card teacher-panel">
+      <h2>Panel del Instructor / Gestión</h2>
+      <div class="action-buttons">
+        <button class="btn-outline" onclick="alert('Función HU-13: Formulario para publicar nueva guía')"> Publicar Nueva Guía (HU-13)</button>
+        <button class="btn-outline" onclick="alert('Función HU-17: Reporte de aprendices con promedio < 70%')"> Ver Aprendices en Riesgo (HU-17)</button>
+        <button class="btn-outline" onclick="alert('Función HU-12: Abre chat directo con instructor')"> Resolver Dudas / Chat (HU-12)</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
-
